@@ -8,11 +8,18 @@ qyapi:
 
 
 chatgpt:
-  proxy: "127.0.0.1:7890"
-  model_name: "gpt-3.5-turbo-16k"
-  api_key: "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"
+  proxy: "http://127.0.0.1:7890"
+  model_name: "gpt-3.5-turbo-1106"
+  api_key: "sk-xx"
+  api_key_option: [
+    "sk-xx",
+    "sk-xx",
+    "sk-xx",
+  ]
 
 
 secret:
-  verify_userid: ""
+  verify_userid: "xxx"
 
+port: 9981
+wx_official_check: False

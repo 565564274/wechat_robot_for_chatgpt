@@ -47,12 +47,12 @@ class QiyeApi:
         resp = json.loads(resp.text)
         return resp["access_token"]
 
-    def sync_msg(self, token, open_kfid):
+    def sync_msg(self, token, open_kfid, limit=1000):
         path = f"cgi-bin/kf/sync_msg?access_token={self.get_access_token()}"
         url = self.base_url + path
         params = {
             "token": token,
-            "limit": 1000,
+            "limit": limit,
             "voice_format": 0,
             "open_kfid": open_kfid}
         if self.cursor:
@@ -85,9 +85,9 @@ class QiyeApi:
         }
         resp = requests.request(url=url, method="post", json=params)
         resp = json.loads(resp.text)
-        if resp["errcode"] != 0:
-            logger.error(resp)
-            assert False, "send_msg failed"
+        # if resp["errcode"] != 0:
+        #     logger.error(resp)
+        #     assert False, "send_msg failed"
         return resp
 
     def send_media(self, external_userid, open_kfid, media_id, media_type="image"):
@@ -104,9 +104,9 @@ class QiyeApi:
         }
         resp = requests.request(url=url, method="post", json=params)
         resp = json.loads(resp.text)
-        if resp["errcode"] != 0:
-            logger.error(resp)
-            assert False, "send_media failed"
+        # if resp["errcode"] != 0:
+        #     logger.error(resp)
+        #     assert False, "send_media failed"
         return resp
 
     def get_service_state(self, external_userid, open_kfid):

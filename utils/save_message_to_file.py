@@ -36,7 +36,7 @@ class MessageHistory:
                     logger.info(f"create json file for 【{external_userid}】")
                     with open(file_path, "w", encoding="utf-8") as f:
                         json.dump({external_userid: msg_dict[external_userid]}, f)
-                    self.history_files.append(external_userid)
+                    self.history_files.append(file_name)
                 else:
                     # reset data
                     find = False
